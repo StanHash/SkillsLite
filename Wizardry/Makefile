@@ -61,7 +61,7 @@ all: $(ALL_FILES)
 LYN_REFERENCE := $(CLIB_DIR)/reference/FE8U-20190316.o
 
 # Setting C/ASM include directories up
-INCLUDE_DIRS := $(CLIB_DIR)/CLib/include Include
+INCLUDE_DIRS := $(CLIB_DIR)/include Include
 INCFLAGS     := $(foreach dir, $(INCLUDE_DIRS), -I "$(dir)")
 
 # setting up compilation flags
