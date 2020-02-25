@@ -1,0 +1,49 @@
+
+#include "Extensions/Hack Installation.txt"
+
+#include "Src/SupportsReloc.lyn.event"
+
+// defining HookProtect(from, to) for debug builds
+// use at the end of a hook: from defines the start of the hook, to defines the end of the space allocated for the hook
+// this does two things: protects the hook from other hacks and ensures the hook doesn't overflow past its allocated area
+
+#ifndef HookProtectDefined
+  #define HookProtectDefined
+
+  #ifdef DEBUG
+    #ifdef __COLORZ_CORE__
+      #define HookProtect(aFrom, aTo) "PROTECT (aFrom) (aTo); ASSERT (aTo) - CURRENTOFFSET"
+    #else
+      // Stan!Core breaks PROTECT, and there's no proper way of reckognizing a Stan!Core from a legacy Core
+      #define HookProtect(aFrom, aTo) "ASSERT (aTo) - CURRENTOFFSET"
+    #endif
+  #else
+    #define HookProtect(aFrom, aTo) " "
+  #endif
+#endif // HookProtectDefined
+
+PUSH
+
+	ORG $02823C // GetUnitSupportLevel
+		WORD $47184B00; POIN NuggetUnitSupportLevel
+		HookProtect($02823C, $028264)
+
+	ORG $028290 // UnitGainSupportExp
+		WORD $47184B00; POIN NuUnitGainSupportExp
+		HookProtect($028290, $0282DC)
+
+	ORG $0282DC // UnitGainSupportLevel
+		WORD $47184B00; POIN NuUnitGainSupportLevel
+		HookProtect($0282DC, $028310)
+
+	ORG $028352 // in CanUnitSupportNow
+		SHORT $46C0 $1C28 $1C31 // nop; mov r0, r5; mov r1, r6
+		BL(NuCanUnitSupportNow_Abridged)
+		WORD $47184B00 $08028387 // return to CanUnitSupportNow
+		HookProtect($028352, $028386)
+
+	ORG $0283E0 // UnitClearSupports
+		WORD $47184B00; POIN NuClearUnitSupports
+		HookProtect($0283E0, $028434)
+
+POP

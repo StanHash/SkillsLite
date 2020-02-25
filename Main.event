@@ -1,6 +1,8 @@
 
 // This is the "ROM Buildfile" for this project (the SkillsLite demo).
 
+#define DEBUG
+
 #define FreeSpace    $B2A610
 #define FreeSpaceEnd $C00000
 
