@@ -1,0 +1,15 @@
+
+# ROM, emu and related files
+
+*.gba
+*.sav
+*.sym
+
+# Intermediate files
+
+*.o
+*.asm
+
+# System & IDE files
+
+.vscode

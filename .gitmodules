@@ -1,0 +1,3 @@
+[submodule "Tools/CLib"]
+	path = Tools/CLib
+	url = https://github.com/StanHash/FE-CLib.git

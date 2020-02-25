@@ -1,0 +1,15 @@
+
+// This is the "ROM Buildfile" for this project (the SkillsLite demo).
+
+#define FreeSpace    $B2A610
+#define FreeSpaceEnd $C00000
+
+ORG FreeSpace
+
+	#include "Wizardry/Wizardry.event"
+
+	// If the following assertion fails, it means we ran out of free space.
+	// If that happens, we want to either split out our data between different
+	// sections, or start writing after the end of the ROM (offset 0x1000000+)
+
+	ASSERT FreeSpaceEnd - CURRENTOFFSET
