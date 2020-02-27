@@ -252,8 +252,13 @@ static int ReplaceSkillCommandIdle(struct MenuProc* menu, struct MenuCommandProc
 
     if (updated)
     {
+        ClearIcons();
+
         ReplaceSkillCommandDraw(menu, command);
         EnableBgSyncByMask(BG0_SYNC_BIT);
+
+        // This is to force redraw skill icons
+        proc->skillsUpdated = TRUE;
     }
 
     return ME_NONE;
