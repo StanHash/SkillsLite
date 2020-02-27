@@ -21,8 +21,7 @@ int HasCharacterSupportData(int characterId)
 static inline
 u8* GetCharacterSupportData(int characterId)
 {
-    u8* const base = (u8*) (gBWLDataStorage + characterId - 1);
-    return base + sizeof(gBWLDataStorage[0]) - MAX_SUPPORT_COUNT;
+    return BBwl_GetBwlData(characterId)->supports;
 }
 
 static inline

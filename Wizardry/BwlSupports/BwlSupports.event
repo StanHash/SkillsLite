@@ -1,7 +1,7 @@
 
 #include "Extensions/Hack Installation.txt"
 
-#include "Src/SupportsReloc.lyn.event"
+#include "Src/BwlSupports.lyn.event"
 
 // defining HookProtect(from, to) for debug builds
 // use at the end of a hook: from defines the start of the hook, to defines the end of the space allocated for the hook

@@ -3,5 +3,5 @@
 // It plays the same role as "Master Hack Installers" from other buildfiles.
 
 #include "BriefBwl/BriefBwl.event"
-#include "SupportsReloc/SupportsReloc.event"
+#include "BwlSupports/BwlSupports.event"
 #include "SkillsCore/SkillsCore.event"

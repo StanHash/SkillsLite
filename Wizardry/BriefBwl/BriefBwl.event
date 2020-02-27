@@ -53,7 +53,7 @@ PUSH
 		BYTE 1
 
 	ORG $0A4684 // Replace BWL_SetDeathStats
-		WORD $47184B00; POIN BBwl_SetDeathStats
+		WORD $47184B00; POIN BBwl_NuSetDeathStats
 		HookProtect($0A4684, $0A474C)
 
 	ORG $0A474C // Dummy BWL_IncrementMoveValue
@@ -72,15 +72,15 @@ PUSH
 		SHORT $4770 // bx lr
 
 	ORG $0A4904 // Replace BWL_GetTotalBattles
-		WORD $47184B00; POIN BBwl_GetTotalBattles
+		WORD $47184B00; POIN BBwl_NuggetTotalBattles
 		HookProtect($0A4904, $0A4928)
 
 	ORG $0A4928 // Replace BWL_GetTotalWins
-		WORD $47184B00; POIN BBwl_GetTotalWins
+		WORD $47184B00; POIN BBwl_NuggetTotalWins
 		HookProtect($0A4928, $0A4958)
 
 	ORG $0A4958 // Replace BWL_GetTotalLosses
-		WORD $47184B00; POIN BBwl_GetTotalLosses
+		WORD $47184B00; POIN BBwl_NuggetTotalLosses
 		HookProtect($0A4958, $0A4978)
 
 	ORG $0A4978 // Dummy BWL_GetTotalLevelsGained
@@ -96,7 +96,7 @@ PUSH
 		HookProtect($0A49C8, $0A49FC)
 
 	ORG $0A49FC // Replace BWL_GetFavoritismValue
-		WORD $47184B00; POIN BBwl_GetFavor
+		WORD $47184B00; POIN BBwl_NuggetFavor
 		HookProtect($0A49FC, $0A4A34)
 
 	ORG $0A4A34 // Dummy BWL_AddFavoritismValue

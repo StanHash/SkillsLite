@@ -1,8 +1,8 @@
 
-.SUFFIXES:
-
 # This makefile handles making all the asm binaries (mostly dmp and lyn.event files)
 # Building those files can be done manually too, this is just convenience for high-end users
+
+.SUFFIXES:
 
 # ====================
 # = TOOL DEFINITIONS =

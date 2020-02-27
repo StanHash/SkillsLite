@@ -20,9 +20,27 @@ struct NewBwlData
 
     /* USER DATA STARTS HERE at 04+06bit*/
 
+    /* 04+06bit */ unsigned : 0; // pad to +08
+
     /* BrieferBwl only: end of saved data at 08+00bit, rest is padding for compat */
 
-    /* 08 */ u32 pad[2];
+    /* 08 */ u8 supports[8];
 };
 
 extern struct NewBwlData gBWLDataStorage[];
+
+/**
+ * Gets Bwl entry for given character
+ * 
+ * @param charId character id
+ * @return address of Bwl entry
+ */
+struct NewBwlData* BBwl_GetBwlData(unsigned charId);
+
+/**
+ * Returns non-zero if given character has a Bwl entry
+ * 
+ * @param charId character id
+ * @return non-zero if character has Bwl entry
+ */
+int BBwl_HasBwl(unsigned charId);

@@ -1,24 +1,22 @@
 
 #include "BriefBwl.h"
 
-static inline
-struct NewBwlData* GetBwlData(unsigned charId)
+struct NewBwlData* BBwl_GetBwlData(unsigned charId)
 {
     charId = charId - 1;
     return gBWLDataStorage + charId;
 }
 
-static inline
-int HasBwl(unsigned charId)
+int BBwl_HasBwl(unsigned charId)
 {
     return (charId < MAX_BWL_CHAR) && GetCharacterData(charId)->affinity;
 }
 
-void BBwl_SetDeathStats(int charId, int killerId, int cause)
+void BBwl_NuSetDeathStats(int charId, int killerId, int cause)
 {
-    if (HasBwl(charId))
+    if (BBwl_HasBwl(charId))
     {
-        struct NewBwlData* bwl = GetBwlData(charId);
+        struct NewBwlData* bwl = BBwl_GetBwlData(charId);
 
         if (GetBattleMapType() == 2) // skirmish
         {
@@ -33,41 +31,41 @@ void BBwl_SetDeathStats(int charId, int killerId, int cause)
     }
 }
 
-int BBwl_GetTotalBattles(void)
+int BBwl_NuggetTotalBattles(void)
 {
     int result = 0;
 
     for (unsigned i = 1; i < MAX_BWL_CHAR; ++i)
-        result += GetBwlData(i)->battles;
+        result += BBwl_GetBwlData(i)->battles;
 
     return result;
 }
 
-int BBwl_GetTotalWins(void)
+int BBwl_NuggetTotalWins(void)
 {
     int result = 0;
 
     for (unsigned i = 1; i < MAX_BWL_CHAR; ++i)
-        result += GetBwlData(i)->wins;
+        result += BBwl_GetBwlData(i)->wins;
 
     return result;
 }
 
-int BBwl_GetTotalLosses(void)
+int BBwl_NuggetTotalLosses(void)
 {
     int result = 0;
 
     for (unsigned i = 1; i < MAX_BWL_CHAR; ++i)
-        result += GetBwlData(i)->losses;
+        result += BBwl_GetBwlData(i)->losses;
 
     return result;
 }
 
-int BBwl_GetFavor(int charId)
+int BBwl_NuggetFavor(int charId)
 {
-    if (HasBwl(charId))
+    if (BBwl_HasBwl(charId))
     {
-        struct NewBwlData* bwl = GetBwlData(charId);
+        struct NewBwlData* bwl = BBwl_GetBwlData(charId);
         int result = bwl->battles * 4 + bwl->wins * 0x10 - bwl->losses * 0x80;
 
         if (result > 4000)
