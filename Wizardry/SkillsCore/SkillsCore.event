@@ -15,3 +15,7 @@ SkillInfoTable:
 	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
 
 #define InjectSkillInfo(aSkillId, aSkillInfo) "PUSH; ORG SkillInfoTable+4*(aSkillId); POIN (aSkillInfo); POP"
+
+#ifdef DEBUG
+  #include "Src/SkillsDebug.lyn.event"
+#endif // DEBUG

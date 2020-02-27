@@ -4,6 +4,7 @@
 #include "gbafe.h"
 
 enum { UNIT_SKILL_COUNT = 6 };
+enum { SKILL_MAX_COUNT = 0x100 };
 
 /**
  * Represents misc constant information on a particular skill
@@ -52,6 +53,21 @@ int UnitCountSkills(struct Unit* unit);
  * @return zero if no skill could be added (skill list was full)
  */
 int UnitAddSkill(struct Unit* unit, int skillId);
+
+/**
+ * Packs all non-blank together at the start of the list for given unit
+ * 
+ * @param unit the unit
+ */
+void UnitClearBlankSkills(struct Unit* unit);
+
+/**
+ * Checks whether the given identifier represents a valid skill
+ * 
+ * @param skillId potential skill id
+ * @return non-zero if the given id represents a valid skill
+ */
+int IsSkill(int skillId);
 
 /**
  * Get skill name text id by skill id

@@ -3,8 +3,8 @@
 
 ALIGN 4
 SkillInfo_Test:
-	/* name */ SHORT 1
-	/* desc */ SHORT 2
+	/* name */ SHORT 5
+	/* desc */ SHORT 6
 	/* icon */ POIN SkillIconGfx_Test
 
 ALIGN 4

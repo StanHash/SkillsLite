@@ -47,3 +47,5 @@ gPromotionPopupTable:
 	PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)
 
 	PopRBattlePopupEnd
+
+#include "UnitMenu.event"

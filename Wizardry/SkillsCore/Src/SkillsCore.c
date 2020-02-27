@@ -47,9 +47,30 @@ int UnitAddSkill(struct Unit* unit, int skillId)
     return FALSE;
 }
 
+void UnitClearBlankSkills(struct Unit* unit)
+{
+    u8* const skills = UnitGetSkillList(unit);
+
+    int iIn = 0, iOut = 0;
+
+    for (; iIn < UNIT_SKILL_COUNT; ++iIn)
+    {
+        if (skills[iIn])
+            skills[iOut++] = skills[iIn];
+    }
+
+    for (; iOut < UNIT_SKILL_COUNT; ++iOut)
+        skills[iOut] = 0;
+}
+
 // ======================
 // = SKILL INFO GETTERS =
 // ======================
+
+int IsSkill(int skillId)
+{
+    return skillId && skillId < SKILL_MAX_COUNT && !!SkillInfoTable[skillId];
+}
 
 int GetSkillNameMsg(int skillId)
 {
