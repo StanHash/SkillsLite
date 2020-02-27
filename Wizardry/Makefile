@@ -103,3 +103,5 @@ AS_DEPFLAGS = --MD "$(CACHE_DIR)/$(notdir $*).d"
 # Anything to lz rule
 %.lz: %
 	$(COMPRESS) $< --to-stdout > $@
+
+include $(CACHE_DIR)/*.d
