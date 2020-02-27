@@ -46,4 +46,8 @@ PUSH
 		WORD $47184B00; POIN NuClearUnitSupports
 		HookProtect($0283E0, $028434)
 
+	ORG $017EF4 // NuUnitLoadSupports
+		WORD $47184B00; POIN NuUnitLoadSupports
+		HookProtect($017EF4, $017F20)
+
 POP

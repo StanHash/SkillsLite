@@ -122,3 +122,13 @@ void NuClearUnitSupports(struct Unit* unit)
         GetUnitSuportData(other)[GetSupportDataIdForOtherUnit(other, charId)] = 0;
     }
 }
+
+void NuUnitLoadSupports(struct Unit* unit)
+{
+    int const count = GetROMUnitSupportCount(unit);
+
+    u8* const data = GetUnitSuportData(unit);
+
+    for (int i = 0; i < count; ++i)
+        data[i] = GetUnitStartingSupportValue(unit, i);
+}
