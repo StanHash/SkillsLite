@@ -38,7 +38,7 @@ PUSH
 
 	ORG $028352 // in CanUnitSupportNow
 		SHORT $46C0 $1C28 $1C31 // nop; mov r0, r5; mov r1, r6
-		BL(NuCanUnitSupportNow_Abridged)
+		callHack_r3(NuCanUnitSupportNow_Abridged)
 		WORD $47184B00 $08028387 // return to CanUnitSupportNow
 		HookProtect($028352, $028386)
 
