@@ -2,6 +2,48 @@
 // This file is the main file that includes Wizardry (aka Engine Hacks or Asm Hacks)
 // It plays the same role as "Master Hack Installers" from other buildfiles.
 
+// =========================
+// = CORE SUPPORTING HACKS =
+// =========================
+// These hacks provide helpers for other hacks
+
 #include "BriefBwl/BriefBwl.event"
-#include "BwlSupports/BwlSupports.event"
+#include "PopupRework/PopupRework.event"
+#include "IconDisplay/IconDisplay.event"
+
+// ========================
+// = CORE MECHANICS HACKS =
+// ========================
+// These hacks represent core mechanics changes and additions
+
 #include "SkillsCore/SkillsCore.event"
+#include "BwlSupports/BwlSupports.event"
+
+// ============================
+// = ADDITIONAL FEATURE HACKS =
+// ============================
+// These hacks are the "content" hacks
+
+#include "Skills/Skills.event"
+
+// ===========================
+
+ALIGN 4
+gBattlePopupTable:
+	PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90)
+	PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90)
+
+	PopRBattlePopupEnd
+
+ALIGN 4
+gPromotionPopupTable:
+	PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90)
+	PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)
+
+	PopRBattlePopupEnd

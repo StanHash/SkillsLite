@@ -1,0 +1,58 @@
+#ifndef ICONDISPLAY_INCLUDED
+#define ICONDISPLAY_INCLUDED
+
+#ifndef _FE8_
+	ERROR this is for FE8 etc
+#endif
+
+#include "Extensions/Hack Installation.txt"
+#include "EAstdlib.event"
+
+#ifndef FreeSpace
+	#define FreeSpace 0xB2A610
+	ORG FreeSpace
+#endif
+
+// =================
+// ICON DISPLAY CORE
+// =================
+
+{
+
+#include "Src/IconDisplayCore.lyn.event"
+
+IDRIconUsageLookup:
+	WORD $02026A90
+
+}
+
+// =================
+// ICON DISPLAY USER
+// =================
+
+// The "User" system by default works with a sheet system:
+// Each icon identifier has two parts: an index (first 8 bits), and a sheet index (first 8 bits)
+
+// The sheet index defines which graphical sheet the icon graphics are to be found
+// (for example, the item icon sheet, or the skill icon sheet)
+
+// The index is for which icon in the sheet
+// (or, more precisely, the offset of the graphics in the sheet step 0x80 bytes)
+
+// The sheet #0 is the standard item icon sheet
+// (this way, "old" icon indices don't break compat)
+
+#include "Src/IconDisplayUser.lyn.event"
+
+#ifndef ICON_SHEET_COUNT
+	#define ICON_SHEET_COUNT 4
+#endif
+
+IDRIconGetters:
+	POIN GetVanillaIconGfx // Sheet #0, vanilla
+
+	ORG (IDRIconGetters + 4 * ICON_SHEET_COUNT)
+
+#define InjectIconSheet(aSheetIndex, aIconGetterFunc) "PUSH; ORG IDRIconGetters + 4 * (aSheetIndex); POIN (aIconGetterFunc); POP"
+
+#endif // ICONDISPLAY_INCLUDED

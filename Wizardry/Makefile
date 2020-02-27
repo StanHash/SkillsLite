@@ -23,10 +23,8 @@ CLIB_DIR := $(TOOLS_DIR)/CLib
 
 ifeq ($(OS),Windows_NT)
   EXE := .exe
-  EA  := $(EA_DIR)/ColorzCore.exe
 else
   EXE :=
-  EA  := mono $(EA_DIR)/ColorzCore.exe
 endif
 
 EADEP    := $(TOOLS_DIR)/ea-dep$(EXE)
