@@ -1,0 +1,6 @@
+
+## msgUnitMenuSkillDebugName
+ Edit Skills[X]
+
+## msgUnitMenuSkillDebugDesc
+DEBUG: Edit this unit's skill set.[X]

@@ -1,0 +1,6 @@
+
+# ignore generated files
+
+Text.event
+TextDefinitions.event
+Text/.TextEntries

@@ -1,0 +1,6 @@
+
+# 0x0903 msgDummy
+This is a placeholder![X]
+
+#include "MenuText.txt"
+#include "SkillText.txt"

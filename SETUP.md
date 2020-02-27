@@ -13,6 +13,8 @@ Next, you will also need a fresh clean FE8(U) ROM. Take one of these and put it 
 
 Once that is done, simply run the `MakeHack.bat` (or `MakeHack.sh`) scripts to build the demonstration ROM (`SKILLS.gba`). You should also be able to make edits to tables, maps, text and events and have your changes applied once you build again.
 
+TODO: make all in one tool package for this (with EA + ColorzCore + python tools)
+
 ## For building Wizardry
 
 Building Wizardry requires a few more things:

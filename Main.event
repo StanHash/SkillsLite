@@ -8,6 +8,8 @@
 
 ORG FreeSpace
 
+	#include "Writans/Text.event"
+
 	#include "Wizardry/Wizardry.event"
 
 	// If the following assertion fails, it means we ran out of free space.

@@ -87,7 +87,7 @@ UnitMenuTable:
   UM_Trade
   UM_Supply
 
-  MenuCommand(1, 1, 0, $04F449, SkillDebugCommand_OnSelect)
+  MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)
 
   UM_Wait
   UM_Separator 

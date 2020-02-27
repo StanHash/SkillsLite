@@ -1,0 +1,7 @@
+
+## msgWrathName
+Wrath[X]
+
+## msgWrathDesc
+Guarantees critical hit on counterattack[N]
+when HP < Skill (and not full).[X]
