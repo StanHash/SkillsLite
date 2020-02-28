@@ -32,11 +32,13 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 
 ### Core features
 
-- Essential fixes
+- ✓ Essential fixes
 - Basic QoL hacks
 - Core skill system
+  - ✓ Replace support data with skills, move supports to BWL
+  - Skill Learning on ✓ Load, ✓ Level Up, Promotion
 - Some skills (see below)
-- Supporting hacks for the functionalities of those skills
+- Supporting hacks for everything else
 - Stat screen that is actually modular
 
 ### Skill list
@@ -62,5 +64,6 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 
 ### Future plans (for 2.0 and above)
 
+- Skill scrolls
 - Skill activations messages during battle animations (would require a full battle system rework to be implemented cleanly)
 - Charm (and other potential "aura" skill) preview on battle preview (display charm icon + color above unit with charm if it affects one of the battlers)
