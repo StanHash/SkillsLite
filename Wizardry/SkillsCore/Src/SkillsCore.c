@@ -63,6 +63,14 @@ void UnitClearBlankSkills(struct Unit* unit)
         skills[iOut] = 0;
 }
 
+void UnitClearSkills(struct Unit* unit)
+{
+    u8* const skills = UnitGetSkillList(unit);
+
+    for (int i = 0; i < UNIT_SKILL_COUNT; ++i)
+        skills[i] = 0;
+}
+
 // ======================
 // = SKILL INFO GETTERS =
 // ======================

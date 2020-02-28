@@ -1,0 +1,40 @@
+#ifndef MODULAR_LEVELUP_INCLUDED
+#define MODULAR_LEVELUP_INCLUDED
+
+// Modular Level Up
+// hack by Stan
+
+#include "ModLuInternal.event"
+
+#include "Src/ModLuFuncs.lyn.event"
+
+/*
+
+// This commented block is provided as example usage of this hack
+// I recommend you to copy-paste this in another part of your hack installer
+// And edit it if your other installed hacks need it (note: this hack is basically useless if not).
+
+ALIGN 4
+GetUnitMaxLevelFunc:
+	POIN MLUStandardGetMaxLevel // Vanilla max level getter (20 if not trainee else 10)
+
+ALIGN 4
+OnLevelUpFuncList:
+	POIN MLUStandardStatGains // Vanilla stat gain routine
+	WORD 0 // End
+
+ALIGN 4
+OnPromoteFuncList:
+	POIN MLUPromStandardStatGains // Vanilla promotion stat gain routine
+	POIN MLUPromStandardWRankGains // Vanilla weapon rank gain routine
+	POIN MLUPromStandardExpLevel // Vanilla exp/level reset routine
+	WORD 0
+
+ALIGN 4
+MakePromoteGainsFuncList:
+	POIN MLUStandardGainDiff // Vanilla stat gain difference routine
+	WORD 0
+
+*/
+
+#endif // MODULAR_LEVELUP_INCLUDED

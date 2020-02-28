@@ -1,5 +1,5 @@
-#ifndef ICONDISPLAY_INCLUDED
-#define ICONDISPLAY_INCLUDED
+#ifndef ICON_DISPLAY_INCLUDED
+#define ICON_DISPLAY_INCLUDED
 
 #ifndef _FE8_
 	ERROR this is for FE8 etc
@@ -55,4 +55,4 @@ IDRIconGetters:
 
 #define InjectIconSheet(aSheetIndex, aIconGetterFunc) "PUSH; ORG IDRIconGetters + 4 * (aSheetIndex); POIN (aIconGetterFunc); POP"
 
-#endif // ICONDISPLAY_INCLUDED
+#endif // ICON_DISPLAY_INCLUDED

@@ -4,3 +4,6 @@
 
 ## msgUnitMenuSkillDebugDesc
 DEBUG: Edit this unit's skill set.[X]
+
+## msgSkillLearnedPopupPhrase
+Learned [X]

@@ -1,0 +1,46 @@
+#ifndef HAX_BATTLEUNITHOOK
+#define HAX_BATTLEUNITHOOK
+
+// Hooks for initializing and saving battle units
+// hack by Stan
+
+// (Used by the skill system learning system)
+
+#include "Src/BattleUnitHook.lyn.event"
+
+#ifndef LynJumpDefined
+	#define LynJumpDefined
+	#define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; PROTECT CURRENTOFFSET-16 CURRENTOFFSET"
+#endif // LynJumpDefined
+
+PUSH
+
+	ORG $02C1EC
+		LynJump(BattleToUnitHook)
+
+	ORG $02A584
+		LynJump(UnitToBattleHook)
+
+POP
+
+/*
+
+// This is provided as example/template
+// I recommend you copy that to another part of your buildfile
+// And populate it with functions from other hacks (this is useless if you don't)
+
+ALIGN 4
+Unit2BattleFuncList:
+	POIN UnitToBattleVanilla
+
+	WORD 0
+
+ALIGN 4
+Battle2UnitFuncList:
+	POIN BattleToUnitVanilla
+
+	WORD 0
+
+*/
+
+#endif // HAX_BATTLEUNITHOOK

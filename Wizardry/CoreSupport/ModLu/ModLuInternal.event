@@ -1,0 +1,46 @@
+#ifndef MODULAR_LEVELUP_INTERNAL_INCLUDED
+#define MODULAR_LEVELUP_INTERNAL_INCLUDED
+
+#ifndef LynJumpDefined
+  #define LynJumpDefined
+  #define LynJump(aTarget) "WORD $46C04778 $E59FC000 $E12FFF1C; POIN aTarget; PROTECT CURRENTOFFSET-16 CURRENTOFFSET"
+  #define LynJumpNonAligned(aTarget)
+#endif // LynJumpDefined
+
+#ifndef HookProtectDefined
+  #define HookProtectDefined
+
+  #ifdef DEBUG
+    #ifdef __COLORZ_CORE__
+      #define HookProtect(aFrom, aTo) "PROTECT (aFrom) (aTo); ASSERT (aTo) - CURRENTOFFSET"
+    #else
+      // Stan!Core breaks PROTECT, and there's no proper way of reckognizing a Stan!Core from a legacy Core
+      #define HookProtect(aFrom, aTo) "ASSERT (aTo) - CURRENTOFFSET"
+    #endif
+  #else
+    #define HookProtect(aFrom, aTo) " "
+  #endif
+#endif // HookProtectDefined
+
+PUSH
+
+	ORG $02BA4C
+		// Inject our shit in
+		LynJump(MLUCheckForLevelUp)
+		PROTECT $02BA28 CURRENTOFFSET // protect this area, as this hack requires it to work as intended
+
+	ORG $02BC00
+		#include "Src/ModLuCore.lyn.event"
+		HookProtect($02BC00, $02BD50)
+
+	ORG $02BD50
+		LynJump(MLUApplyPromotion)
+
+	ORG $02BEA0
+		LynJump(MLUMakeBattleUnitPromoteGains)
+
+	// TODO: MLU for promotions!
+
+POP
+
+#endif // MODULAR_LEVELUP_INTERNAL_INCLUDED

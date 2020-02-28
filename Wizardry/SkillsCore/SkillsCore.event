@@ -1,7 +1,22 @@
 
+#ifndef ICON_DISPLAY_INCLUDED
+  ERROR "Please include IconDisplay before SkillsCore!"
+#endif // ICON_DISPLAY_INCLUDED
+
+#ifndef POPUP_REWORK_INCLUDED
+  ERROR "Please include PopupRework before SkillsCore!"
+#endif // POPUP_REWORK_INCLUDED
+
+// ===============
+// = SKILLS CORE =
+// ===============
+
 #include "Src/SkillsCore.lyn.event"
 
-InjectIconSheet(1, GetSkillIconGfx)
+InjectIconSheet(ICON_SHEET_SKILLS, GetSkillIconGfx)
+
+PopRSetPopupCodeHandlers(POPR_SKILL_ICON_COMPONENT, PopRComponent_SkillIcon)
+PopRSetPopupCodeHandlers(POPR_SKILL_NAME_COMPONENT, PopRComponent_SkillName)
 
 ALIGN 4
 SkillInfoTable:
@@ -16,6 +31,68 @@ SkillInfoTable:
 
 #define InjectSkillInfo(aSkillId, aSkillInfo) "PUSH; ORG SkillInfoTable+4*(aSkillId); POIN (aSkillInfo); POP"
 
+// ===================
+// = SKILLS LEANRING =
+// ===================
+
+#include "Src/SkillsLearning.lyn.event"
+
+ALIGN 4
+Popup_SkillLearned:
+	Popup_SetSound(0x5A)
+
+	Popup_SetColor(0)
+	Popup_StringId(msgSkillLearnedPopupPhrase) // "Learned [X]"
+
+	Popup_Space(1)
+	WORD POPR_SKILL_ICON_COMPONENT 0
+	Popup_Space(1)
+
+	Popup_SetColor(2)
+	WORD POPR_SKILL_NAME_COMPONENT 0
+
+	Popup_SetColor(0)
+	Popup_StringId(0x22) // ".[X]"
+
+	Popup_End
+
+PromotedInternalLevelBonus: BYTE 20
+
+// TODO: move the following two tables elsewhere
+
+ALIGN 4
+CharacterSkillLists:
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+
+ALIGN 4
+ClassSkillLists:
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
+
+//+ ADD OnLevelUpFuncList OnLevelUp_TryLearnSkill
+//+ ADD BattlePopupTable "PopRBattlePopup(PopR_InitSkillLearning, Popup_SkillLearned, 90)"
+//+ ADD Unit2BattleFuncList OnUnit2Battle_ClearLearnedSkills
+//+ ADD Battle2UnitFuncList OnBattle2Unit_UpdateSkills
+
+// =======================
+// = SKILLS DEBUG EDITOR =
+// =======================
+
 #ifdef DEBUG
   #include "Src/SkillsDebug.lyn.event"
 #endif // DEBUG
+
+//+ ADD UnitMenuItems -nDebugSkills -aDrop "MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)"

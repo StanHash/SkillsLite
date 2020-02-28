@@ -20,6 +20,9 @@ extern const struct SkillInfo* const SkillInfoTable[];
 
 #define SKILL_ICON(aSkillId) ((1 << 8) + (aSkillId))
 
+#define BU_SKILL_LEARNED(bu)     (*((u8*) (((void*) (bu)) + 0x58)))
+#define BU_SKILL_FORGET_SLOT(bu) (*((s8*) (((void*) (bu)) + 0x7F)))
+
 /**
  * Gets a pointer to the unit's skill list
  * 
@@ -60,6 +63,13 @@ int UnitAddSkill(struct Unit* unit, int skillId);
  * @param unit the unit
  */
 void UnitClearBlankSkills(struct Unit* unit);
+
+/**
+ * Clears a unit's skill list
+ * 
+ * @param unit the unit
+ */
+void UnitClearSkills(struct Unit* unit);
 
 /**
  * Checks whether the given identifier represents a valid skill

@@ -1,9 +1,10 @@
-#ifndef HAX_POPR
-#define HAX_POPR
+#ifndef POPUP_REWORK_INCLUDED
+#define POPUP_REWORK_INCLUDED
 
 // Popup rework
 // hack by StanH_
 
+#include "Extensions/PopupDefinitions.txt"
 #include "PopupReworkInternal.event"
 
 /*
@@ -93,4 +94,4 @@ gPromotionPopupTable:
 
 */
 
-#endif // HAX_POPR
+#endif // POPUP_REWORK_INCLUDED
