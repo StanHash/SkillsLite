@@ -95,3 +95,12 @@ MakePromoteGainsFuncList:
 	POIN MLUStandardGainDiff // Vanilla stat gain difference routine
 
 	WORD 0 // End
+
+ALIGN 4
+OnLoadUnitFuncList:
+	POIN $017EBD // unknown what this does but vanilla does it
+	POIN $017EF5 // load supports
+
+	POIN UnitAutolevelSkills
+
+	WORD 0 // end

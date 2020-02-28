@@ -69,7 +69,7 @@ void UnitAutolevelSkills(struct Unit* unit)
             ? unit->level + PromotedInternalLevelBonus
             : unit->level;
 
-        int const unitClass = unit->pCharacterData->number;
+        int const unitClass = unit->pClassData->number;
 
         while (charSkills[0])
         {

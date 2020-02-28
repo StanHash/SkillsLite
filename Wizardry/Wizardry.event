@@ -15,6 +15,7 @@
 #include "CoreSupport/IconDisplay/IconDisplay.event"
 #include "CoreSupport/ModLu/ModLu.event"
 #include "CoreSupport/BattleUnitHook/BattleUnitHook.event"
+#include "CoreSupport/UnitLoadHook/UnitLoadHook.event"
 
 #include "CoreSupport/UnitMenu.event"
 

@@ -1,0 +1,27 @@
+#ifndef UNIT_LOAD_HOOK_INCLUDED
+#define UNIT_LOAD_HOOK_INCLUDED
+
+// Provides a hook for injecting behavior on unit load
+// hack by stan
+
+#include "Extensions/Hack Installation.txt"
+
+#include "Src/UnitLoadHook.lyn.event"
+
+PUSH
+	ORG $017CB8
+		callHack_r3(UnitLoadHook)
+POP
+
+/* Example usage:
+
+ALIGN 4
+OnLoadUnitFuncList:
+	POIN $017EBD // unknown what this does but vanilla does it
+	POIN $017EF5 // load supports
+
+	WORD 0 // end
+
+*/
+
+#endif // UNIT_LOAD_HOOK_INCLUDED
