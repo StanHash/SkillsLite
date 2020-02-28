@@ -4,4 +4,4 @@ Wrath[X]
 
 ## msgWrathDesc
 Guarantees critical hit on counterattack[N]
-when HP < Skill (and not full).[X]
+when HP is less than half.[X]

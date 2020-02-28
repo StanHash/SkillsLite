@@ -33,6 +33,7 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 ### Core features
 
 - Essential fixes
+- Basic QoL hacks
 - Core skill system
 - Some skills (see below)
 - Supporting hacks for the functionalities of those skills
@@ -47,7 +48,7 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 | Sol     | Heal damage dealt. PROC: Skill%
 | Pavise  | Recieve no damage. PROC: Skill%
 | Vantage | Always hit first
-| Wrath   | Crit when attacked if Hp isn't max and Hp < Skill
+| Wrath   | Crit when attacked if Hp < 50%
 | Miracle | Always survive at min 1 Hp when Hp starts full
 | Counter | Adjacent opponent takes recoil from physical hits
 | Nihil   | Negate opponent's battle skills
