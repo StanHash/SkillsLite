@@ -1,7 +1,7 @@
 
 #include "SkillSystem.h"
 
-extern u8 WrathSkillId;
+extern u8 const WrathSkillId;
 
 void BC_Wrath(struct BattleUnit* attacker, struct BattleUnit* defender)
 {

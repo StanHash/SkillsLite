@@ -35,7 +35,7 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 - ✓ Essential fixes
 - Basic QoL hacks
 - Core skill system
-  - ✓ Replace support data with skills, move supports to BWL
+  - ✓ Replace support data with skills, ✓ Move supports to BWL
   - Skill Learning on ✓ Load, ✓ Level Up, Promotion
 - Some skills (see below)
 - Supporting hacks for everything else
@@ -53,7 +53,7 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 | ✓ Wrath | Crit when attacked if Hp < 50%
 | Miracle | Always survive at min 1 Hp when Hp starts full
 | Counter | Adjacent opponent takes recoil from physical hits
-| Nihil   | Negate opponent's battle skills
+| ✓ Nihil | Negate opponent's battle skills
 | ✓ Charm | +2/-2 damage dealt/recieved for allies within 2 tiles
 | Canto   | Allows unit to move again after certain actions
 | Paragon | Doubles exp gain

@@ -1,0 +1,18 @@
+
+#include "Src/SkillNihil.lyn.event"
+
+NihilSkillId: BYTE SKILL_NIHIL
+
+ALIGN 4
+SkillInfo_Nihil:
+	/* name */ SHORT msgNihilName
+	/* desc */ SHORT msgNihilDesc
+	/* icon */ POIN SkillIconGfx_Nihil
+
+ALIGN 4
+SkillIconGfx_Nihil:
+	#incbin "../Icons/Nihil.4bpp"
+
+InjectSkillInfo(SKILL_NIHIL, SkillInfo_Nihil)
+
+//+ ADD BattleCalcFuncList BC_Nihil -nNihil -bFIRST

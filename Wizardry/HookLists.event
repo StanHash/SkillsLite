@@ -118,6 +118,7 @@ BattleCalcFuncList:
 	POIN BC_RankBonuses
 	POIN BC_StatusBonuses
 
+	POIN BC_Nihil
 	POIN BC_Wrath
 	POIN BC_Charm
 

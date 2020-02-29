@@ -1,7 +1,7 @@
 
 #include "SkillSystem.h"
 
-extern u8 CharmSkillId;
+extern u8 const CharmSkillId;
 
 static inline
 int CountCharms(int x, int y, int faction)

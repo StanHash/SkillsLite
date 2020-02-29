@@ -12,3 +12,10 @@ Charm[X]
 ## msgCharmDesc
 Grants +2 damage dealt and -2 damage[N]
 taken to all allies within 2 squares.[X]
+
+## msgNihilName
+Nihil[X]
+
+## msgNihilDesc
+Nullifies the effect of the[N]
+opponent's battle skills.[X]
