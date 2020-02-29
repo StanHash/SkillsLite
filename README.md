@@ -55,12 +55,14 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 | Counter | Adjacent opponent takes recoil from physical hits
 | Nihil   | Negate opponent's battle skills
 | Charm   | +2/-2 damage dealt/recieved for allies within 2 tiles
+| Canto   | Allows unit to move again after certain actions
 | Paragon | Doubles exp gain
 | Renewal | Heal 5 hp at start of turn
 | Savior  | Negates stat penalties from rescuing
 | Pass    | Can move through enemies
 | Provoke | AI will prioritize targetting this unit
 | Shove   | Command: Pushes an adjacent ally one tile away
+| Steal   | Command: Steal item from adjacent enemy
 
 ### Future plans (for 2.0 and above)
 
