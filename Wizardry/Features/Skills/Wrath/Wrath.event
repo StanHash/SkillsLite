@@ -1,0 +1,21 @@
+
+// NOTE: Currently, wrath is implemented as a BattleCalc (per-battle stats) function
+// However, it would probably be better as part of the computations for per-hit stats instead
+
+#include "Src/SkillWrath.lyn.event"
+
+WrathSkillId: BYTE SKILL_WRATH
+
+ALIGN 4
+SkillInfo_Wrath:
+	/* name */ SHORT msgWrathName
+	/* desc */ SHORT msgWrathDesc
+	/* icon */ POIN SkillIconGfx_Wrath
+
+ALIGN 4
+SkillIconGfx_Wrath:
+	#incbin "../Icons/Wrath.4bpp"
+
+InjectSkillInfo(SKILL_WRATH, SkillInfo_Wrath)
+
+//+ ADD BattleCalcFuncList BC_Wrath -nWrath

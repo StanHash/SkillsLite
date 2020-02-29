@@ -1,0 +1,20 @@
+
+#include "Src/BattleCalc.lyn.event"
+
+#define BC_BattleDefense  $02AA45
+#define BC_BattleAttack   $02AABD
+#define BC_BattleSpeed    $02AB75
+#define BC_BattleHit      $02ABAD
+#define BC_BattleAvoid    $02ABE5
+#define BC_BattleCrit     $02AC19
+#define BC_BattleDodge    $02AC55
+#define BC_SupportBonuses $02A9D1
+#define BC_RankBonuses    $02AD55
+#define BC_StatusBonuses  $02AD91
+
+PUSH
+
+	ORG 0x2A95C
+		WORD $47184B00; POIN NuComputeBattleStats
+
+POP

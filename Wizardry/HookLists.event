@@ -103,4 +103,21 @@ OnLoadUnitFuncList:
 
 	POIN UnitAutolevelSkills
 
-	WORD 0 // end
+	WORD 0 // End
+
+ALIGN 4
+BattleCalcFuncList:
+	POIN BC_BattleDefense
+	POIN BC_BattleAttack
+	POIN BC_BattleSpeed
+	POIN BC_BattleHit
+	POIN BC_BattleAvoid
+	POIN BC_BattleCrit
+	POIN BC_BattleDodge
+	POIN BC_SupportBonuses
+	POIN BC_RankBonuses
+	POIN BC_StatusBonuses
+
+	POIN BC_Wrath
+
+	WORD 0 // End
