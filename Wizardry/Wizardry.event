@@ -24,15 +24,15 @@
 // ========================
 // These hacks represent core mechanics changes and additions
 
-#include "SkillsCore/SkillsCore.event"
-#include "BwlSupports/BwlSupports.event"
+#include "CoreHacks/SkillsCore/SkillsCore.event"
+#include "CoreHacks/BwlSupports/BwlSupports.event"
 
 // ============================
 // = ADDITIONAL FEATURE HACKS =
 // ============================
 // These hacks are the "content" hacks
 
-#include "Skills/Skills.event"
+#include "Features/Skills/Skills.event"
 
 // ===========================
 
