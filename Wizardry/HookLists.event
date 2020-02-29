@@ -119,5 +119,6 @@ BattleCalcFuncList:
 	POIN BC_StatusBonuses
 
 	POIN BC_Wrath
+	POIN BC_Charm
 
 	WORD 0 // End

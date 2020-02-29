@@ -5,3 +5,10 @@ Wrath[X]
 ## msgWrathDesc
 Guarantees critical hit on counterattack[N]
 when HP is less than half.[X]
+
+## msgCharmName
+Charm[X]
+
+## msgCharmDesc
+Grants +2 damage dealt and -2 damage[N]
+taken to all allies within 2 squares.[X]

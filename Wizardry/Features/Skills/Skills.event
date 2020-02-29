@@ -1,4 +1,6 @@
 
 #define SKILL_WRATH 1
+#define SKILL_CHARM 2
 
 #include "Wrath/Wrath.event"
+#include "Charm/Charm.event"

@@ -50,11 +50,11 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 | Sol     | Heal damage dealt. PROC: Skill%
 | Pavise  | Recieve no damage. PROC: Skill%
 | Vantage | Always hit first
-| Wrath   | Crit when attacked if Hp < 50%
+| ✓ Wrath | Crit when attacked if Hp < 50%
 | Miracle | Always survive at min 1 Hp when Hp starts full
 | Counter | Adjacent opponent takes recoil from physical hits
 | Nihil   | Negate opponent's battle skills
-| Charm   | +2/-2 damage dealt/recieved for allies within 2 tiles
+| ✓ Charm | +2/-2 damage dealt/recieved for allies within 2 tiles
 | Canto   | Allows unit to move again after certain actions
 | Paragon | Doubles exp gain
 | Renewal | Heal 5 hp at start of turn

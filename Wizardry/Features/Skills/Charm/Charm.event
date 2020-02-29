@@ -1,0 +1,18 @@
+
+#include "Src/SkillCharm.lyn.event"
+
+CharmSkillId: BYTE SKILL_CHARM
+
+ALIGN 4
+SkillInfo_Charm:
+	/* name */ SHORT msgCharmName
+	/* desc */ SHORT msgCharmDesc
+	/* icon */ POIN SkillIconGfx_Charm
+
+ALIGN 4
+SkillIconGfx_Charm:
+	#incbin "../Icons/Charm.4bpp"
+
+InjectSkillInfo(SKILL_CHARM, SkillInfo_Charm)
+
+//+ ADD BattleCalcFuncList BC_Charm -nCharm
