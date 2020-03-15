@@ -4,39 +4,26 @@
 extern u8 const CharmSkillId;
 
 static inline
-int CountCharms(int x, int y, int faction)
+int CountCharms(int x, int y, int unitId)
 {
-    static s8 const coordsLut[][2] =
-    {
-        // Every coord offsets for 'within 2 tiles' except (0, 0)
+    int const alliance = unitId & 0x80;
 
-        { -2,  0 },
-        { -1, -1 },
-        { -1,  0 },
-        { -1, +1 },
-        {  0, -2 },
-        {  0, -1 },
-        {  0, +1 },
-        {  0, +2 },
-        { +1, -1 },
-        { +1,  0 },
-        { +1, +1 },
-        { +2,  0 },
-    };
+    int const begin = alliance + 1;
+    int const end   = alliance + 0x80;
 
     int count = 0;
 
-    for (int i = 0; i < (sizeof(coordsLut)/sizeof(coordsLut[0])); ++i)
+    for (int i = begin; i < end; ++i)
     {
-        int const ix = x + coordsLut[i][0];
-        int const iy = y + coordsLut[i][1];
-
-        struct Unit* const unit = GetUnit(gMapUnit[iy][ix]);
+        struct Unit* const unit = GetUnit(i);
 
         if (!UNIT_IS_VALID(unit))
             continue;
 
-        if (!AreAllegiancesAllied(UNIT_FACTION(unit), faction))
+        if (i == unitId)
+            continue;
+
+        if (RECT_DISTANCE(x, y, unit->xPos, unit->yPos) > 2)
             continue;
 
         if (UnitHasSkill(unit, CharmSkillId))
@@ -48,7 +35,7 @@ int CountCharms(int x, int y, int faction)
 
 void BC_Charm(struct BattleUnit* attacker, struct BattleUnit* defender)
 {
-    int const count = CountCharms(attacker->unit.xPos, attacker->unit.yPos, UNIT_FACTION(&attacker->unit));
+    int const count = CountCharms(attacker->unit.xPos, attacker->unit.yPos, attacker->unit.index);
 
     if (count)
     {
