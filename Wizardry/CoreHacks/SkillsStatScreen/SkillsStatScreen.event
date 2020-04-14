@@ -1,0 +1,26 @@
+
+// Temporary stat screen hook that replaces the BWL line with a skills list
+
+#ifndef SKILLS_CORE_INCLUDED
+  ERROR "Include Skills Core before Skills Stat Screen!"
+#endif // SKILLS_CORE_INCLUDED
+
+#define SKILLS_STATSCREEN_INCLUDED
+
+#include "Src/SkillsStatScreen.lyn.event"
+
+PUSH
+
+	ORG $086FAC // replace DrawStatScreenBwl
+		WORD $46C04778 $E59FC000 $E12FFF1C; POIN NuDrawStatScreenBwl
+
+	ORG $A00C50 + 4 // Stat Screen Res HelpInfo down ref
+		POIN HelpInfo_Ss0Skill0
+
+	ORG $A00CF8 + 4 // Stat Screen Cond HelpInfo down ref
+		POIN HelpInfo_Ss0Skill2
+
+	ORG $A00BA8 + 12 // Stat Scren Hp (Page 0) HelpInfo right ref
+		POIN HelpInfo_Ss0Skill0
+
+POP

@@ -28,6 +28,8 @@
 #include "CoreHacks/SkillsCore/SkillsCore.event"
 #include "CoreHacks/BwlSupports/BwlSupports.event"
 
+#include "CoreHacks/SkillsStatScreen/SkillsStatScreen.event"
+
 // ============================
 // = ADDITIONAL FEATURE HACKS =
 // ============================

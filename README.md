@@ -40,6 +40,7 @@ This is the tentative list of things that needs to be done before the 1.0 releas
 - Some skills (see below)
 - Supporting hacks for everything else
 - Stat screen that is actually modular
+  - ✓ Before that becomes a thing, we have a temporary skill display hack that replaces BWL on the stat screen
 
 ### Skill list
 
