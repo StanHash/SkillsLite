@@ -89,6 +89,14 @@ void NuDrawStatScreenBwl(void)
     Text_SetColorId(text, TEXT_COLOR_GOLD);
     Text_DrawString(text, "Skills");
 
+    if (UnitCountSkills(STATSCREEN->unit) == 0)
+    {
+        Text_SetColorId(text, TEXT_COLOR_GRAY);
+        Text_SetXCursor(text, 32);
+
+        Text_DrawString(text, "None");
+    }
+
     Text_Display(text, TM_PAGEFRAME + TILEMAP_INDEX(X, Y));
 
     u8 const* const skills = UnitGetSkillList(STATSCREEN->unit);
@@ -100,27 +108,22 @@ void NuDrawStatScreenBwl(void)
     }
 }
 
-#define DefSkillHbFuncs(skillnum) \
-static void HbRedirect_Skill ## skillnum (struct HelpBoxProc* proc) \
-{ \
-    u8 const* const skills = UnitGetSkillList(STATSCREEN->unit); \
-    if (!IsSkill(skills[skillnum])) \
-        TryRelocateHbUp(proc); \
-} \
-static void HbPopuplate_Skill ## skillnum (struct HelpBoxProc* proc) \
-{ \
-    u8 const* const skills = UnitGetSkillList(STATSCREEN->unit); \
-    proc->mid = GetSkillDescriptionMsg(skills[skillnum]); \
+static void HbRedirect_Skill(struct HelpBoxProc* proc)
+{
+    u8 const* const skills = UnitGetSkillList(STATSCREEN->unit);
+    int const skillnum = proc->info->mid;
+
+    if (!IsSkill(skills[skillnum]))
+        TryRelocateHbUp(proc);
 }
 
-DefSkillHbFuncs(0)
-DefSkillHbFuncs(1)
-DefSkillHbFuncs(2)
-DefSkillHbFuncs(3)
-DefSkillHbFuncs(4)
-DefSkillHbFuncs(5)
+static void HbPopuplate_Skill(struct HelpBoxProc* proc)
+{
+    u8 const* const skills = UnitGetSkillList(STATSCREEN->unit);
+    int const skillnum = proc->info->mid;
 
-#undef DefSkillHbFuncs
+    proc->mid = GetSkillDescriptionMsg(skills[skillnum]);
+}
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill0;
 const struct HelpBoxInfo HelpInfo_Ss0Skill1;
@@ -132,35 +135,35 @@ const struct HelpBoxInfo HelpInfo_Ss0Skill5;
 const struct HelpBoxInfo HelpInfo_Ss0Skill0 =
 {
     HI_SS0_RES, NULL, HI_SS0_HP, &HelpInfo_Ss0Skill1,
-    136, 136, 0, HbRedirect_Skill0, HbPopuplate_Skill0,
+    136, 136, 0, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill1 =
 {
     HI_SS0_RES, NULL, &HelpInfo_Ss0Skill0, &HelpInfo_Ss0Skill2,
-    152, 136, 0, HbRedirect_Skill1, HbPopuplate_Skill1,
+    152, 136, 1, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill2 =
 {
     HI_SS0_CND, NULL, &HelpInfo_Ss0Skill1, &HelpInfo_Ss0Skill3,
-    168, 136, 0, HbRedirect_Skill2, HbPopuplate_Skill2,
+    168, 136, 2, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill3 =
 {
     HI_SS0_CND, NULL, &HelpInfo_Ss0Skill2, &HelpInfo_Ss0Skill4,
-    184, 136, 0, HbRedirect_Skill3, HbPopuplate_Skill3,
+    184, 136, 3, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill4 =
 {
     HI_SS0_CND, NULL, &HelpInfo_Ss0Skill3, &HelpInfo_Ss0Skill5,
-    200, 136, 0, HbRedirect_Skill4, HbPopuplate_Skill4,
+    200, 136, 4, HbRedirect_Skill, HbPopuplate_Skill,
 };
 
 const struct HelpBoxInfo HelpInfo_Ss0Skill5 =
 {
     HI_SS0_CND, NULL, &HelpInfo_Ss0Skill4, NULL,
-    216, 136, 0, HbRedirect_Skill5, HbPopuplate_Skill5,
+    216, 136, 5, HbRedirect_Skill, HbPopuplate_Skill,
 };
