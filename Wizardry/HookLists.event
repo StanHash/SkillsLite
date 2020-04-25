@@ -77,6 +77,7 @@ ALIGN 4
 OnLoadUnitFuncList:
     POIN $017EBD
     POIN $017EF5
+    POIN UnitAutolevelSkills
     WORD 0
 ALIGN 4
 BattleCalcFuncList:

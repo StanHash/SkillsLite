@@ -91,6 +91,7 @@ ClassSkillLists:
 //+     add_battle_popup("PopRBattlePopup(PopR_InitSkillLearning, Popup_SkillLearned, 90)")
 //+     add_unit2battle_func("OnUnit2Battle_ClearLearnedSkills")
 //+     add_battle2unit_func("OnBattle2Unit_UpdateSkills")
+//+     add_onloadunit_func("UnitAutolevelSkills")
 //+ end)
 
 // =======================
