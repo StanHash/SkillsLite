@@ -15,4 +15,4 @@ SkillIconGfx_Nihil:
 
 InjectSkillInfo(SKILL_NIHIL, SkillInfo_Nihil)
 
-//+ ADD BattleCalcFuncList BC_Nihil -nNihil -bFIRST
+//+ execute_before(function() add_battle_calc("BC_Nihil") end)

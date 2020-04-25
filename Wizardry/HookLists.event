@@ -1,125 +1,96 @@
-
-ALIGN 4
-UnitMenuItems:
-	//Use the macro MenuCommand(name,description,colour,usability,effect)
-	//Color options: NormalText, GrayText, BlueText, OrangeText, GreenText (flashes), BlackText
-	//MenuCommand(DualAtkTxtID,DualAtkDescId,0,DualAtkCheck,DualAtkSelected)
-	UM_Seize
-	UM_Attack
-	UM_Attack_B
-	UM_Staff
-	UM_Ride
-	UM_Exit
-	UM_Play
-	UM_Dance
-	UM_Steal
-	UM_Summon
-	UM_Summon_DK
-	UM_Pick
-	UM_Talk
-	UM_Support
-	UM_Visit
-	UM_Chest
-	UM_Door
-	UM_Armory
-	UM_Vendor
-	UM_Secret
-	UM_Arena
-	UM_Rescue
-	UM_Give
-	UM_Take
-	UM_Drop
-	UM_Item
-	UM_Trade
-	UM_Supply
-
-	MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)
-
-	UM_Wait
-	UM_Separator 
-
-ALIGN 4
-gBattlePopupTable:
-	PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90)
-	PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90)
-
-	PopRBattlePopupEnd
-
-ALIGN 4
-gPromotionPopupTable:
-	PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90)
-	PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)
-
-	PopRBattlePopupEnd
-
 ALIGN 4
 Unit2BattleFuncList:
-	POIN UnitToBattleVanilla
-
-	WORD 0
-
+    POIN UnitToBattleVanilla
+    POIN OnUnit2Battle_ClearLearnedSkills
+    WORD 0
 ALIGN 4
 Battle2UnitFuncList:
-	POIN BattleToUnitVanilla
-
-	WORD 0
-
-ALIGN 4
-GetUnitMaxLevelFunc:
-	POIN MLUStandardGetMaxLevel // Vanilla max level getter (20 if not trainee else 10)
-
+    POIN BattleToUnitVanilla
+    POIN OnBattle2Unit_UpdateSkills
+    WORD 0
 ALIGN 4
 OnLevelUpFuncList:
-	POIN MLUStandardStatGains // Vanilla stat gain routine
-
-	POIN OnLevelUp_TryLearnSkill
-
-	WORD 0 // End
-
+    POIN MLUStandardStatGains
+    POIN OnLevelUp_TryLearnSkill
+    WORD 0
 ALIGN 4
 OnPromoteFuncList:
-	POIN MLUPromStandardStatGains // Vanilla promotion stat gain routine
-	POIN MLUPromStandardWRankGains // Vanilla weapon rank gain routine
-	POIN MLUPromStandardExpLevel // Vanilla exp/level reset routine
-
-	WORD 0 // End
-
+    POIN MLUPromStandardStatGains
+    POIN MLUPromStandardWRankGains
+    POIN MLUPromStandardExpLevel
+    WORD 0
 ALIGN 4
 MakePromoteGainsFuncList:
-	POIN MLUStandardGainDiff // Vanilla stat gain difference routine
-
-	WORD 0 // End
-
+    POIN MLUStandardGainDiff
+    WORD 0
+ALIGN 4
+UnitMenuItems:
+    UM_Seize
+    UM_Attack
+    UM_Attack_B
+    UM_Staff
+    UM_Ride
+    UM_Exit
+    UM_Play
+    UM_Dance
+    UM_Steal
+    UM_Summon
+    UM_Summon_DK
+    UM_Pick
+    UM_Talk
+    UM_Support
+    UM_Visit
+    UM_Chest
+    UM_Door
+    UM_Armory
+    UM_Vendor
+    UM_Secret
+    UM_Arena
+    UM_Rescue
+    UM_Give
+    UM_Take
+    UM_Drop
+    MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)
+    UM_Item
+    UM_Trade
+    UM_Supply
+    UM_Wait
+    UM_Separator
+ALIGN 4
+gBattlePopupTable:
+    PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90)
+    PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90)
+    PopRBattlePopup(PopR_InitSkillLearning, Popup_SkillLearned, 90)
+    PopRBattlePopupEnd
+ALIGN 4
+gPromotionPopupTable:
+    PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)
+    PopRBattlePopupEnd
 ALIGN 4
 OnLoadUnitFuncList:
-	POIN $017EBD // unknown what this does but vanilla does it
-	POIN $017EF5 // load supports
-
-	POIN UnitAutolevelSkills
-
-	WORD 0 // End
-
+    POIN $017EBD
+    POIN $017EF5
+    WORD 0
 ALIGN 4
 BattleCalcFuncList:
-	POIN BC_BattleDefense
-	POIN BC_BattleAttack
-	POIN BC_BattleSpeed
-	POIN BC_BattleHit
-	POIN BC_BattleAvoid
-	POIN BC_BattleCrit
-	POIN BC_BattleDodge
-	POIN BC_SupportBonuses
-	POIN BC_RankBonuses
-	POIN BC_StatusBonuses
-
-	POIN BC_Nihil
-	POIN BC_Wrath
-	POIN BC_Charm
-
-	WORD 0 // End
+    POIN BC_BattleDefense
+    POIN BC_BattleAttack
+    POIN BC_BattleSpeed
+    POIN BC_BattleHit
+    POIN BC_BattleAvoid
+    POIN BC_BattleCrit
+    POIN BC_BattleDodge
+    POIN BC_SupportBonuses
+    POIN BC_RankBonuses
+    POIN BC_StatusBonuses
+    POIN BC_Charm
+    POIN BC_Wrath
+    POIN BC_Nihil
+    WORD 0

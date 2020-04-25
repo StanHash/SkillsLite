@@ -18,3 +18,31 @@ PUSH
 		WORD $47184B00; POIN NuComputeBattleStats
 
 POP
+
+//+ BATTLE_CALC_LIST = {}
+
+//+ function add_battle_calc(funcstr)
+//+     BATTLE_CALC_LIST[#BATTLE_CALC_LIST+1] = funcstr
+//+ end
+
+//+ execute_after(function()
+//+     print("ALIGN 4")
+//+     print("BattleCalcFuncList:")
+//+     for _, funcstr in ipairs(BATTLE_CALC_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+ end)
+
+//+ execute_before(function()
+//+     add_battle_calc("BC_BattleDefense")
+//+     add_battle_calc("BC_BattleAttack")
+//+     add_battle_calc("BC_BattleSpeed")
+//+     add_battle_calc("BC_BattleHit")
+//+     add_battle_calc("BC_BattleAvoid")
+//+     add_battle_calc("BC_BattleCrit")
+//+     add_battle_calc("BC_BattleDodge")
+//+     add_battle_calc("BC_SupportBonuses")
+//+     add_battle_calc("BC_RankBonuses")
+//+     add_battle_calc("BC_StatusBonuses")
+//+ end)

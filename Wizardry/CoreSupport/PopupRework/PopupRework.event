@@ -68,30 +68,42 @@ HOW TO ADD NEW POPUP COMPONENTS:
 	#define PopRBattlePopupEnd                                     "WORD 0 0 0"
 #endif // PopRDefinitions
 
-/*
+//+ BATTLE_POPUP_LIST = {}
+//+ PROMOTE_POPUP_LIST = {}
 
-// This commented block is provided as example usage of this hack's battle popup system
-// I recommend you to copy-paste this in another part of your hack installer
-// And populate it with more popups if your other installed hacks need it.
+//+ function add_battle_popup(popupstr)
+//+     BATTLE_POPUP_LIST[#BATTLE_POPUP_LIST+1] = popupstr
+//+ end
 
-ALIGN 4
-gBattlePopupTable:
-	PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90) // duration was 96 in vanilla but I like roundness
-	PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90) // same
-	PopRBattlePopupEnd
+//+ function add_promote_popup(popupstr)
+//+     PROMOTE_POPUP_LIST[#PROMOTE_POPUP_LIST+1] = popupstr
+//+ end
 
-ALIGN 4
-gPromotionPopupTable:
-	PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90) // duration was 96 in vanilla but I like roundness
-	PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90) // same
-	PopRBattlePopupEnd
+//+ add_battle_popup("PopRBattlePopup(PopR_InitWeaponBroke, 0x592420, 90)")
+//+ add_battle_popup("PopRBattlePopup(PopR_InitWRankUp,     0x592468, 90)")
 
-*/
+//+ add_promote_popup("PopRBattlePopup(PopR_InitSwordRankNew, gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitLanceRankNew, gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitAxeRankNew,   gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitBowRankNew,   gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitStaffRankNew, gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitAnimaRankNew, gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitLightRankNew, gPopup_PopR_NewWType, 90)")
+//+ add_promote_popup("PopRBattlePopup(PopR_InitElderRankNew, gPopup_PopR_NewWType, 90)")
+
+//+ execute_after(function()
+//+     print("ALIGN 4")
+//+     print("gBattlePopupTable:")
+//+     for _, popupstr in ipairs(BATTLE_POPUP_LIST) do
+//+         print("    " .. popupstr)
+//+     end
+//+     print("    PopRBattlePopupEnd")
+//+     print("ALIGN 4")
+//+     print("gPromotionPopupTable:")
+//+     for _, popupstr in ipairs(PROMOTE_POPUP_LIST) do
+//+         print("    " .. popupstr)
+//+     end
+//+     print("    PopRBattlePopupEnd")
+//+ end)
 
 #endif // POPUP_REWORK_INCLUDED

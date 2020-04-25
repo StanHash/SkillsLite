@@ -23,24 +23,33 @@ PUSH
 
 POP
 
-/*
+//+ UNIT2BATTLE_LIST = {}
+//+ BATTLE2UNIT_LIST = {}
 
-// This is provided as example/template
-// I recommend you copy that to another part of your buildfile
-// And populate it with functions from other hacks (this is useless if you don't)
+//+ function add_unit2battle_func(funcstr)
+//+     UNIT2BATTLE_LIST[#UNIT2BATTLE_LIST+1] = funcstr
+//+ end
 
-ALIGN 4
-Unit2BattleFuncList:
-	POIN UnitToBattleVanilla
+//+ function add_battle2unit_func(funcstr)
+//+     BATTLE2UNIT_LIST[#BATTLE2UNIT_LIST+1] = funcstr
+//+ end
 
-	WORD 0
+//+ add_unit2battle_func("UnitToBattleVanilla")
+//+ add_battle2unit_func("BattleToUnitVanilla")
 
-ALIGN 4
-Battle2UnitFuncList:
-	POIN BattleToUnitVanilla
-
-	WORD 0
-
-*/
+//+ execute_after(function()
+//+     print("ALIGN 4")
+//+     print("Unit2BattleFuncList:")
+//+     for _, funcstr in ipairs(UNIT2BATTLE_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+     print("ALIGN 4")
+//+     print("Battle2UnitFuncList:")
+//+     for _, funcstr in ipairs(BATTLE2UNIT_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+ end)
 
 #endif // HAX_BATTLEUNITHOOK

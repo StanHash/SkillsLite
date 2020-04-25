@@ -52,6 +52,18 @@ all: $(ALL_FILES)
 
 .PHONY: all
 
+# ===================
+# = HOOK LISTS RULE =
+# ===================
+
+HOOKLISTS := HookLists.event
+HOOKLISTS_SCRIPT := HookLists.lua
+
+HOOKLISTS_DEPEND := $(filter-out $(filter %.event, $(HOOKLISTS)), $(ALL_FILES))
+
+$(HOOKLISTS): $(HOOKLISTS_SCRIPT) $(HOOKLISTS_DEPEND)
+	@lua $(HOOKLISTS_SCRIPT) $(HOOKLISTS_DEPEND) > $(HOOKLISTS)
+
 # =================
 # = PATTERN RULES =
 # =================

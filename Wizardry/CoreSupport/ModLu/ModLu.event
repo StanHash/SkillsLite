@@ -8,33 +8,53 @@
 
 #include "Src/ModLuFuncs.lyn.event"
 
-/*
-
-// This commented block is provided as example usage of this hack
-// I recommend you to copy-paste this in another part of your hack installer
-// And edit it if your other installed hacks need it (note: this hack is basically useless if not).
-
 ALIGN 4
-GetUnitMaxLevelFunc:
+GetUnitMaxLevelFunc: // TODO: add this to the cool things
 	POIN MLUStandardGetMaxLevel // Vanilla max level getter (20 if not trainee else 10)
 
-ALIGN 4
-OnLevelUpFuncList:
-	POIN MLUStandardStatGains // Vanilla stat gain routine
-	WORD 0 // End
+//+ ONLEVEL_LIST = {}
+//+ ONPROMOTE_LIST = {}
+//+ MAKEPROMOTEGAINS_LIST = {}
 
-ALIGN 4
-OnPromoteFuncList:
-	POIN MLUPromStandardStatGains // Vanilla promotion stat gain routine
-	POIN MLUPromStandardWRankGains // Vanilla weapon rank gain routine
-	POIN MLUPromStandardExpLevel // Vanilla exp/level reset routine
-	WORD 0
+//+ function add_onlevel_func(funcstr)
+//+     ONLEVEL_LIST[#ONLEVEL_LIST+1] = funcstr
+//+ end
 
-ALIGN 4
-MakePromoteGainsFuncList:
-	POIN MLUStandardGainDiff // Vanilla stat gain difference routine
-	WORD 0
+//+ function add_onpromote_func(funcstr)
+//+     ONPROMOTE_LIST[#ONPROMOTE_LIST+1] = funcstr
+//+ end
 
-*/
+//+ function add_makepromotegains_func(funcstr)
+//+     MAKEPROMOTEGAINS_LIST[#MAKEPROMOTEGAINS_LIST+1] = funcstr
+//+ end
+
+//+ add_onlevel_func("MLUStandardStatGains")
+
+//+ add_onpromote_func("MLUPromStandardStatGains")
+//+ add_onpromote_func("MLUPromStandardWRankGains")
+//+ add_onpromote_func("MLUPromStandardExpLevel")
+
+//+ add_makepromotegains_func("MLUStandardGainDiff")
+
+//+ execute_after(function()
+//+     print("ALIGN 4")
+//+     print("OnLevelUpFuncList:")
+//+     for _, funcstr in ipairs(ONLEVEL_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+     print("ALIGN 4")
+//+     print("OnPromoteFuncList:")
+//+     for _, funcstr in ipairs(ONPROMOTE_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+     print("ALIGN 4")
+//+     print("MakePromoteGainsFuncList:")
+//+     for _, funcstr in ipairs(MAKEPROMOTEGAINS_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+ end)
 
 #endif // MODULAR_LEVELUP_INCLUDED

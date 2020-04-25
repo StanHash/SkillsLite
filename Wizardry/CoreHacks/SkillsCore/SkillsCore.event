@@ -86,10 +86,12 @@ ClassSkillLists:
 	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
 	WORD 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0
 
-//+ ADD OnLevelUpFuncList OnLevelUp_TryLearnSkill
-//+ ADD BattlePopupTable "PopRBattlePopup(PopR_InitSkillLearning, Popup_SkillLearned, 90)"
-//+ ADD Unit2BattleFuncList OnUnit2Battle_ClearLearnedSkills
-//+ ADD Battle2UnitFuncList OnBattle2Unit_UpdateSkills
+//+ execute_before(function()
+//+     add_onlevel_func("OnLevelUp_TryLearnSkill")
+//+     add_battle_popup("PopRBattlePopup(PopR_InitSkillLearning, Popup_SkillLearned, 90)")
+//+     add_unit2battle_func("OnUnit2Battle_ClearLearnedSkills")
+//+     add_battle2unit_func("OnBattle2Unit_UpdateSkills")
+//+ end)
 
 // =======================
 // = SKILLS DEBUG EDITOR =
@@ -99,4 +101,7 @@ ClassSkillLists:
   #include "Src/SkillsDebug.lyn.event"
 #endif // DEBUG
 
-//+ ADD UnitMenuItems -nDebugSkills -aDrop "MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)"
+//+ execute_before(function()
+//+     insert_unit_menu_command(25.5,
+//+         "MenuCommand(msgUnitMenuSkillDebugName, msgUnitMenuSkillDebugDesc, OrangeText, $04F449, SkillDebugCommand_OnSelect)")
+//+ end)

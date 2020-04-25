@@ -94,4 +94,52 @@ PUSH
 
 POP
 
+//+ UNIT_MENU_COMMANDS = {}
+
+//+ function insert_unit_menu_command(priority, commandstr)
+//+     UNIT_MENU_COMMANDS[#UNIT_MENU_COMMANDS+1] = { priority, commandstr }
+//+ end
+
+//+ execute_after(function()
+//+     table.sort(UNIT_MENU_COMMANDS, function(a, b) return a[1] < b[1] end)
+//+     print("ALIGN 4")
+//+     print("UnitMenuItems:")
+//+     for _, pair in ipairs(UNIT_MENU_COMMANDS) do
+//+         print("    " .. pair[2])
+//+     end
+//+     print("    UM_Separator")
+//+ end)
+
+//+ execute_before(function()
+//+     insert_unit_menu_command(1, "UM_Seize")
+//+     insert_unit_menu_command(2, "UM_Attack")
+//+     insert_unit_menu_command(3, "UM_Attack_B")
+//+     insert_unit_menu_command(4, "UM_Staff")
+//+     insert_unit_menu_command(5, "UM_Ride")
+//+     insert_unit_menu_command(6, "UM_Exit")
+//+     insert_unit_menu_command(7, "UM_Play")
+//+     insert_unit_menu_command(8, "UM_Dance")
+//+     insert_unit_menu_command(9, "UM_Steal")
+//+     insert_unit_menu_command(10, "UM_Summon")
+//+     insert_unit_menu_command(11, "UM_Summon_DK")
+//+     insert_unit_menu_command(12, "UM_Pick")
+//+     insert_unit_menu_command(13, "UM_Talk")
+//+     insert_unit_menu_command(14, "UM_Support")
+//+     insert_unit_menu_command(15, "UM_Visit")
+//+     insert_unit_menu_command(16, "UM_Chest")
+//+     insert_unit_menu_command(17, "UM_Door")
+//+     insert_unit_menu_command(18, "UM_Armory")
+//+     insert_unit_menu_command(19, "UM_Vendor")
+//+     insert_unit_menu_command(20, "UM_Secret")
+//+     insert_unit_menu_command(21, "UM_Arena")
+//+     insert_unit_menu_command(22, "UM_Rescue")
+//+     insert_unit_menu_command(23, "UM_Give")
+//+     insert_unit_menu_command(24, "UM_Take")
+//+     insert_unit_menu_command(25, "UM_Drop")
+//+     insert_unit_menu_command(26, "UM_Item")
+//+     insert_unit_menu_command(27, "UM_Trade")
+//+     insert_unit_menu_command(28, "UM_Supply")
+//+     insert_unit_menu_command(29, "UM_Wait")
+//+ end)
+
 #endif // UNIT_MENU

@@ -15,4 +15,4 @@ SkillIconGfx_Charm:
 
 InjectSkillInfo(SKILL_CHARM, SkillInfo_Charm)
 
-//+ ADD BattleCalcFuncList BC_Charm -nCharm
+//+ execute_before(function() add_battle_calc("BC_Charm") end)

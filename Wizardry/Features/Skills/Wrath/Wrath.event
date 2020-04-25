@@ -18,4 +18,4 @@ SkillIconGfx_Wrath:
 
 InjectSkillInfo(SKILL_WRATH, SkillInfo_Wrath)
 
-//+ ADD BattleCalcFuncList BC_Wrath -nWrath
+//+ execute_before(function() add_battle_calc("BC_Wrath") end)

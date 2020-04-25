@@ -13,15 +13,22 @@ PUSH
 		callHack_r3(UnitLoadHook)
 POP
 
-/* Example usage:
+//+ ONLOADUNIT_LIST = {}
 
-ALIGN 4
-OnLoadUnitFuncList:
-	POIN $017EBD // unknown what this does but vanilla does it
-	POIN $017EF5 // load supports
+//+ function add_onloadunit_func(funcstr)
+//+     ONLOADUNIT_LIST[#ONLOADUNIT_LIST+1] = funcstr
+//+ end
 
-	WORD 0 // end
+//+ add_onloadunit_func("$017EBD") -- unknown what this does but vanilla does it
+//+ add_onloadunit_func("$017EF5") -- load supports
 
-*/
+//+ execute_after(function()
+//+     print("ALIGN 4")
+//+     print("OnLoadUnitFuncList:")
+//+     for _, funcstr in ipairs(ONLOADUNIT_LIST) do
+//+         print("    POIN " .. funcstr)
+//+     end
+//+     print("    WORD 0")
+//+ end)
 
 #endif // UNIT_LOAD_HOOK_INCLUDED
